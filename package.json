@@ -6,23 +6,18 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "migrate": "cd src/database && sequelize db:migrate"
+    "lint": "next lint"
   },
   "type": "module",
   "dependencies": {
     "@apollo/server": "^4.11.3",
     "@as-integrations/next": "^3.2.0",
     "@graphql-tools/schema": "^10.0.20",
-    "@next/env": "^15.2.0",
-    "@sequelize/postgres": "^7.0.0-alpha.45",
     "dotenv": "^16.4.7",
     "graphql": "^16.10.0",
     "graphql-tag": "^2.12.6",
     "next": "15.1.7",
     "pg": "^8.13.3",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "sequelize": "^6.37.5"
   },
   "devDependencies": {
