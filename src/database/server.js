@@ -3,24 +3,10 @@ import database from './config/config.js';
 const env = process.env.NODE_ENV || 'development';
 const config = database[env];
 
-/* const sequelize = new Sequelize({
-    dialect: 'postgres',
-    dialectModule: pg,
-    dialectOptions: {
-        ssl: false,
-    },
-    username: 'postgres',
-    password: '449cfb',
-    host: 'localhost',
-    database: 'postgres',
-    port: 5432,
-}); */
-
 const sequelize = new Sequelize(config.url ? config.url : config.database, config.username, config.password, {
     ...config
 });
 
-console.log("ensv", sequelize);
 try {
     await sequelize.authenticate();
     console.log("Connection has been established successfully.");
