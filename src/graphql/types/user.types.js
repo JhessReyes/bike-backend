@@ -4,7 +4,11 @@ const UserType = gql`
     type User {
         id: String!
         name: String!
+        surname: String!
         email: String!
+        dpi: String
+        nit: String 
+        phone: String
     }   
 
     type UserPage {
@@ -16,6 +20,21 @@ const UserType = gql`
     type Query {
         user(id: String!): User
         users(page: Int, limit: Int): UserPage
+    }
+
+    input UserInput {
+        name: String!
+        surname: String!
+        email: String!
+        dpi: String
+        nit: String 
+        phone: String
+    }
+
+    type Mutation {
+        createUser(input: UserInput!): User
+        #updateUser(id: String!, input: UserInput!): User
+        #deleteUser(id: String!): User
     }
 `;
 

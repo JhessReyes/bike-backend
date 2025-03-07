@@ -1,5 +1,5 @@
 'use strict';
-import { Model } from 'sequelize';
+import { Model, DataTypes } from 'sequelize';
 
 
 export class User extends Model {
@@ -25,7 +25,8 @@ export default (sequelize) => {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: DataTypes.UUID
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4
       },
       name: {
         type: DataTypes.STRING(100),
@@ -37,7 +38,7 @@ export default (sequelize) => {
       },
       dpi: {
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: true
       },
       email: {
         type: DataTypes.STRING(255),
@@ -46,11 +47,11 @@ export default (sequelize) => {
       },
       nit: {
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: true
       },
       phone: {
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: true
       },
       createdAt: {
         allowNull: false,
@@ -60,7 +61,7 @@ export default (sequelize) => {
         allowNull: false,
         type: DataTypes.DATE
       },
-      deleteAt: {
+      deletedAt: {
         allowNull: true,
         type: DataTypes.DATE
       }
