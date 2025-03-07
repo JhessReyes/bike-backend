@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import database from './config/config.js';
+import { initUser } from "./models/index.js";
 const env = process.env.NODE_ENV || 'development';
 const config = database[env];
 
@@ -14,7 +15,9 @@ try {
     console.error("Unable to connect to the database:", error);
 }
 
-const db = {}
+const User = initUser(sequelize);
+
+const db = { User };
 
 Object.keys(db).forEach(modelName => {
     if (db[modelName].associate) {
